@@ -1,0 +1,5 @@
+.jshintrc
+.jsconfig.json
+typings.json
+.idea/
+node_modules/

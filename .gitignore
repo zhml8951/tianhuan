@@ -34,3 +34,8 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+*/.jshintrc
+*/.jsconfig.json
+*/typings.json
+*/.idea/
+*/node_modules/
