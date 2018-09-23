@@ -1,10 +1,10 @@
 var EventEmitter = require('events').EventEmitter;
-const event = new EventEmitter();
-event.on('some_event', function () {
+const event_demo = new EventEmitter();
+event_demo.on('some_event', function () {
     console.log('some_event.... ');
 });
 setTimeout(function () {
-    event.emit('some_event');
+    event_demo.emit('some_event');
 }, 1000);
 
 const events_2 = require('events');
@@ -24,11 +24,11 @@ var eventsEmitter_3 = new events_3.EventEmitter();
 
 var listener3_1 = function listener3_1() {
     console.log('Listen3_1 execute....');
-}
+};
 
 var listener3_2 = function listener3_2() {
     console.log('Listen3_2 execute ....');
-}
+};
 
 eventsEmitter_3.addListener('connection3',listener3_2);
 
