@@ -5,10 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "arnni",
   "license": "ISC",
-  "description": "",
+  "description": "node stu demo",
   "dependencies": {
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "socket.io": "^2.1.1"
   }
 }
