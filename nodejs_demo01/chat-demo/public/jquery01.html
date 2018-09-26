@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./jquery.min.js"></script>
 
-</head>
-<body>
-    <script type="text/javascript">
-        $(function () {
-            var items = document.getElementsByTagName('p');
-            for (let i = 0; i < items.length; i++) {
-                items[i].onclick = function () {
-                    console.log(items[i].tagName);
-                    alert(items[i]);
-                }
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $("p").click(function () {
-                alert('p is click');
-                console.log($(this));
-            });
-            $(".but01").click(function () {
-                alert('button clicked');
-            });
-        })
-    </script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<script src="./jquery-2.2.4.js"></script>
+	</head>
 
-    <p>test01<input type="button" value="click" class="but01"></p>
-    <p>test02</p>
-</body>
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				var items = document.getElementsByTagName('p');
+				for(let i = 0; i < items.length; i++) {
+					items[i].onclick = function() {
+						console.log(items[i].tagName);
+						alert(items[i]);
+					}
+				}
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("p").click(function() {
+					alert('p is click');
+					console.log($(this));
+				});
+				$(".but01").click(function() {
+					alert('button clicked');
+				});
+			})
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#btn_hide').click(function() {
+					$('#test-1').hide();
+				});
+			});
+			$(function() {
+				$("#btn_red").click(function() {
+					$("p.red-line").css("background-color","red").css("font-size","28");
+					$(this).css("font-size","28");
+				});
+			});
+		</script>
+		<!--<script type="text/javascript">
+			$.noConflict();
+			jQuery(document).ready(function(){
+				jQuery("#btn_red").click(function(){
+					jQuery("p.red-line").text("jQuery running always");
+				})
+			})
+		</script>-->
+		<p>test01<input type="button" value="click" class="but01"></p>
+		<p>test02</p>
+		<p id="test-1">This is another paragraph.</p>
+		<button type="button" id="btn_hide">hide test-1</button>
+		<div id="toRed">
+			<p class="red-line">This line will be RED</p>
+			<button type="button" id="btn_red">Click to RED</button>
+		</div>
+	</body>
+
 </html>
