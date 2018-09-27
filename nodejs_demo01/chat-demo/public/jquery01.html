@@ -1,94 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
-</head>
-<body>
-    <script type="text/javascript">
-        // $(function () {
-        var items = document.getElementsByTagName('p');
-        for (let i = 0; i < items.length; i++) {
-            items[i].onclick = function () {
-                console.log(items[i].tagName);
-                alert(items[i]);
-            }
-        }
-        var item = document.getElementsById("tb");
-        var tbody = item.getElementsByTagName("tbody")[0];
-        var trs = tbody.getElementsByTagName("tr");
-        for (var i = 0; i < trs.length; i++) {
-            if (i % 2 == 0) {
-                tsr[i].style.backgroundColor = "#888";
-            }
-        }
-
-        var btn = document.getElementById("btn");
-        btn.onclick = function () {
-            var arrays = new Array();
-            var items = document.getElementByName("check");
-            for (let i = 0; i < items.length; i++) {
-                arrays.push(items[i].value);
-            }
-            alert("select number: " + arrays.length);
-        }
-            // });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $("p").click(function () {
-                alert('p is click');
-                console.log($(this));
-            });
-            $(".but01").click(function () {
-                alert('button clicked');
-            });
-            $("#one").css("background","#bbffa");
-            // $("div").css("background","#ccffbb");
-            $("span#mover").css("background", "#BBFFAA");
-        });
-    </script>
-    <p>test01<input type="button" value="click" class="but01"></p>
-    <p>test02</p>
-    <table id="tb">
-        <tbody>
-            <tr><td>line_1-1</td><td>line_1-2</td></tr>
-            <tr><td>line_2-1</td><td>line_2-2</td></tr>
-            <tr><td>line_3-1</td><td>line_3-2</td></tr>
-        </tbody>
-    </table>
-
-    <input type="checkout" value="1" name="check" checked="checked" />
-    <input type="checkout" value="2" name="check" />
-    <input type="checkout" value="3" name="check" checked="checked" />
-    <input type="checkout" value="4" name="check"/>
-    <input type="button" value="select number ID" id="btn">
-
-    <div class="one" id="one">
-        id is one.class 
-        <div class="mini">class is mini</div>
-    </div>
-    <div class="one" id="two" title="test">
-        id is two, class is one, title is test
-        <div class="mini" title="other">class is mini, title is other</div>
-        <div class="mini" title="test">class is mini, title is test</div>
-    </div>
-    <div class="one">
-        <div class="mini">class is mini</div>
-        <div class="mini">class is mini</div>
-        <div class="mini">class is mini</div>
-        <div class="mini" title="test02">class is mini, title is test02</div>
-    </div>
-    <div style="display:none" class="none">
-        class is none, style-display is none
-    </div>
-    <div class="hide">class is hide </div>
-    <div>
-        include input and style is hidden <input type="hidden" size="8" />
-    </div>
-    <span id="mover">exec mover </span>
-    <button class="hide all">HIDE-ALL</button>
-</body>
-=======
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -151,5 +63,4 @@
 		</div>
 	</body>
 
->>>>>>> 61d406750dd97324b24a6a8487281a5dcb1e26f7
 </html>
