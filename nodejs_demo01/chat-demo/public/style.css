@@ -148,3 +148,17 @@ ul {
     right: 0;
     width: 100%;
 }
+
+div {
+    border: 2px solid blue;
+    margin: 2px;
+    padding: 2px;
+}
+p {
+    background: yellow;
+    margin: 2px;
+    padding: 2px;
+}
+strong {
+    color: red;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-1.12.4.js"></script>
+    <title>jQuery wrap demo2</title>
+    <style>
+        div {
+            border: 2px solid blue;
+        }
+        p {
+            background: yellow;
+            margin: 4px;
+        }
+     </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner">div inner text</div>
+        <div class="inner">div inner another text</div>
+    </div>
+</body>
+    <script type="text/javascript">
+        // $(".inner").wrap("<div class='new'></div>");
+        $(".inner").wrap(function(){
+            return "<div class='" + $(this).text() + "'></div>";
+        });
+    </script>
+</html>

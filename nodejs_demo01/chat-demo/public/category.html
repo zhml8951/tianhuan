@@ -65,7 +65,7 @@
             return false;
         });
         $(function () {
-            var $li = $("div.fruit ul li:eq(0)");
+            var $li = $("div.fruit ul li:last");
             $("#btnFruit").click(function () {
                 alert("Selected Fruit: " + $li.text());
             })
@@ -76,6 +76,8 @@
             console.log(pLi_sec.text());
             console.log($li.attr("title"));
             console.log("li value: " + $li.attr("value"));
+            $li_add_p = $("<li>banana</li>")
+            $li.append($li_add_p);
         })
     </script>
 </body>
