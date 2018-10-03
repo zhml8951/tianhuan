@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="../chat-demo/public/jquery.js"></script>
+	<title>jQuery clone</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="clone01">jQuery clone demo01</div>
+		<div class="clone02">jQuery clone demo02</div>
+	</div>
+	<div class="container2">
+
+	</div>
+	<br /><br />
+	<b>Hello</b>
+	<p>, how are you. jQuery!</p>
+	<p class="pAdd">--Prepend--</p>
+
+	<h2>Greetings</h2>
+	<div class="container03">
+		<div class="inner">div-inner01</div>
+		<div class="inner">div-inner02</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function() {
+		console.log("line18");
+		$(".container").clone().appendTo(".container");
+		$(".inner").prepend($("p.pAdd"));
+	});
+	$(document).ready(() => {
+		console.log("document.ready()");
+		$("b").clone().prependTo("p");
+		$("b").prepend();
+	});
+</script>
+</html>
