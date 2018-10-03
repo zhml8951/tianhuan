@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>sort array</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <ul id="str_ul">
+        <li>Arnni</li>
+        <li>github</li>
+        <li>tianhuan</li>
+        <li>seller</li>
+        <li>market</li>
+    </ul>
+    <button onclick="sort_str_array()" value="sortArray">sortArray</button>
+    <br>
+    <div>
+        <ul id="int_ul">
+            <li>888</li>
+            <li>138</li>
+            <li>219</li>
+            <li>399</li>
+            <li>89</li>
+            <li>6399</li>
+            <li>4</li>
+        </ul>
+        <label for="btnSortInt" title="sort int">
+            <button id="btnSortInt">SORT INT</button>
+        </label>
+    </div>
+</body>
+<script>
+    function sort_str_array() {
+        let arr = [];
+        $("#str_ul li").each(function () {
+            var ele = $(this).text();
+            arr.push(ele);
+        });
+        jQuery.each(arr, function (index, value) {
+            console.log("index: " + index, "; value: " + value);
+        });
+        console.log("sorting..... ");
+        arr = arr.sort();
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        for (var i = 0, item; item = arr[i]; i++) {
+            console.log("index:" + i + "; value:" + item);
+        }
+        jQuery.each(arr, function (index, value) {
+            console.log(index, value);
+            console.log($("li:eq(" + index + ")").text());
+            $("li:eq(" + index + ")").text(value);
+        });
+    }
+
+    $("#btnSortInt").click(function () {
+        let arr = [];
+        $("#int_ul li").each(function () {
+            var ele = $(this).text();
+            console.log(ele);
+            arr.push(ele);
+        });
+        arr = arr.sort( (a, b) =>{
+            return a - b;
+        });
+
+        jQuery.each(arr, function (index, value) {
+            console.log(index, value);
+            $("#int_ul li:eq(" + index + ")").text(value);
+        });
+    })
+</script>
+
+</html>

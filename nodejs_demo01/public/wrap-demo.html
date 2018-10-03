@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery wrap demo</title>
+</head>
+<body>
+    <p>Hello</p>
+    <p>wrap</p>
+    <div>
+        <span>Span text</span>
+        <strong>Strong text here</strong>
+        <span>Another span text</span>
+    </div>
+</body>
+<script>
+        $('p').wrap("<div></div>");
+        $('span').wrap("<div><p><em><b></b></em></p></div>");
+</script>
+</html>

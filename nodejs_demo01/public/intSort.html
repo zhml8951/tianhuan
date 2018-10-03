@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="./jquery.min.js"></script>
+    <style>
+        .sortNumber,
+        .sortName {
+            display: inline-block;
+            padding: 5px 10px;
+            cursor: pointer;
+            background: grey;
+            color: red;
+            font-weight: blod;
+            font-size: 24px;
+        }
+
+        #list {
+            background-color: darkgrey;
+            font-size: 20px;
+            color: green;
+        }
+
+        h1.order {
+            font-size: +3em;
+            background: blanchedalmond;
+            color: blue;
+        }
+    </style>
+    <title>int sort demo</title>
+</head>
+
+<body>
+    <h1 class="order">Order list</h1>
+    <ul id="list">
+        <li><span class="orderName">zhangjj: </span><span class="orderId">108</span></li>
+        <li><span class="orderName">HuangJJ: </span><span class="orderId">122</span></li>
+        <li><span class="orderName">gaoJJ: </span><span class="orderId">12</span></li>
+        <li><span class="orderName">ArnniJJ: </span><span class="orderId">13</span></li>
+        <li><span class="orderName">DannyJJ: </span><span class="orderId">82</span></li>
+        <li><span class="orderName">chunkJJ: </span><span class="orderId">999</span></li>
+        <li><span class="orderName">majaoJJ: </span><span class="orderId">3278</span></li>
+        <li><span class="orderName">PolloGG: </span><span class="orderId">499</span></li>
+        <li><span class="orderName">SanataCar: </span><span class="orderId">7999</span></li>
+        <li><span class="orderName">XunTeLong: </span><span class="orderId">99</span></li>
+        <li><span class="orderName">KIACARgg: </span><span class="orderId">939</span></li>
+        <li><span class="orderName">BabyCall: </span><span class="orderId">119</span></li>
+    </ul>
+    <span class="sortNumber" mode="0">SortNumb</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="sortName" mode="0">SortName</span>
+    <div class="test01">test01</div>
+    <div class="test02">test02</div>
+    <div class="test03">test03</div>
+</body>
+<script>
+    $(function () {
+        /**
+         * sort the list by id;
+         */
+        $("span.sortNumber").click(function () {
+            let mode = $(this).attr("mode");
+            let count = $("#list .orderName").length;
+            let objArr = new Array();
+
+            $("#list .orderName").each(function (index, element) {
+                var orderObj = {
+                    name: $(this).text(),
+                    ordID: $("#list .orderId:eq(" + index + ")").text()
+                };
+                objArr.push(orderObj);
+            });
+            console.log($(this).attr("mode"));
+            console.log(objArr);
+
+            function compare(property) {
+                return function (a, b) {
+                    let val1 = a[property];
+                    let val2 = b[property];
+                    return val1 - val2;
+                }
+            }
+
+            function compare_desc(property) {
+                return function (a, b) {
+                    return b[property] - a[property];
+                }
+            }
+
+            if (mode == 0) {
+                objArr.sort(compare('ordID'));
+                $("span.sortNumber").attr("mode", 1);
+            } else {
+                // objArr.sort(function ("ordID:") {
+                //     return function (a, b) {
+                //         return b[ordID] - a[ordID];
+                //     }
+                objArr.sort(compare_desc("ordID"));
+                $("span.sortNumber").attr("mode", 0);
+            }
+
+            $.each(objArr, function (index, value) {
+                $("#list .orderName:eq(" + index + ")").text(value.name);
+                $("#list .orderId:eq(" + index + ")").text(value.ordID);
+                // console.log($(this).attr("mode"));
+                // console.log(value.name, "---", value.ordID);
+            });
+        });
+
+        $("span.sortName").click(function () {
+            let myList = 
+            console.log(myList);
+        });
+
+    });
+</script>
+
+</html>

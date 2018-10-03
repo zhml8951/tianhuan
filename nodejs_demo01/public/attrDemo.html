@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery attr demo</title>
+    <style>
+        p {
+            margin: 20px 0 0;
+        }
+        b {
+            color: blue;
+        }
+        em {
+            color: blue;
+            font-weight: bold;
+        }
+        div {
+            color: red;
+        }
+    </style>
+    <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+    <p>Once there was a <em title="huge, gigantic">Large</em> dinosaur....</p>
+    <br><br><br> 
+    <input id="check1" type="checkbox" checked="checked"/>
+    <label for="check1">Check me</label>
+    <p></p>
+</body>
+<script>
+    $("input#check1").change(function () {
+        var $input = $(this);
+        $("p").html(".attr('checked'):<b>" + $input.attr("checked") + "</b><br>" +
+         ".prop('checked'): <b>" + $input.prop("checked") + "</b><br>" + ".is(':checked') : <b>" + $input.is(" :checked") + 
+            "</b>"   
+        );
+    }).change();
+</script>
+</html>

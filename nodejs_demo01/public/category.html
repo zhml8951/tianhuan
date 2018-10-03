@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Good Category demo</title>
+</head>
+
+<body>
+    <div class="subCategoryBox">
+        <ul>
+            <li><a href="#">佳能</a><i>(30440)</i></li>
+            <li><a href="#">索尼</a><i>(11880)</i></li>
+            <li><a href="#">三星</a><i>(6653)</i></li>
+            <li><a href="#">尼康</a><i>(99890)</i></li>
+            <li><a href="#">松下</a><i>(12345)</i></li>
+            <li><a href="#">富士</a><i>(33)</i></li>
+            <li><a href="#">柯达</a><i>(2563)</i></li>
+            <li><a href="#">宾得</a><i>(132)</i></li>
+            <li><a href="#">理光</a><i>(199)</i></li>
+            <li><a href="#">奥林巴斯</a><i>(2553)</i></li>
+            <li><a href="#">明基</a><i>(19992)</i></li>
+            <li><a href="#">爱国者</a><i>(23434)</i></li>
+            <li><a href="#">其它</a><i>(343)</i></li>
+            <li><a href="#">佳能</a><i>(111)</i></li>
+            <li><a href="#">佳能</a><i>(333)</i></li>
+            <li><a href="#">佳能</a><i>(666)</i></li>
+            <li><a href="#">佳能</a><i>(8888)</i></li>
+        </ul>
+    </div>
+    <div class="showMore">
+        <a href="./more.html"><span>显示全部</span></a>
+    </div>
+    <br><br><br>
+    <div class="fruit">
+        <p title="you like a fruit"></p>
+        <ul>
+            <li title="appleAs" value="1">apple</li>
+            <li title="orange" value="2">orange</li>
+            <li title="pineapple" value="3">pineapple</li>
+        </ul>
+        <button id="btnFruit">alertFruit</button>
+    </div>
+    <script type="text/javascript">
+        var $category = $("div.subCategoryBox ul li:gt(5):not(:last)");
+        $category.hide();
+        var $toggleBtn = $("div.showMore > a");
+        $toggleBtn.click(function () {
+            if ($category.is(":visible")) {
+                $category.hide();
+                $(this).find('span')
+                    .css("background", "url(img/up.gif) no-repeat 0 0")
+                    .text("显示全部品牌");
+                $("ul li").filter(":contains('尼康'), :contains('三星'), :contains('明基')").removeClass("promoted");
+            } else {
+                $category.show();
+                $(this).find('span')
+                    .css("backgroud", "url(img/up.gif) no-repeat 0 0")
+                    .text("精简显示品牌");
+                $("ul li").filter(":contains('尼康'), :contains('三星'), :contains('明基')").addClass("promoted");
+            }
+            return false;
+        });
+        $(function () {
+            var $li = $("div.fruit ul li:last");
+            $("#btnFruit").click(function () {
+                alert("Selected Fruit: " + $li.text());
+            })
+            var $p_li = $("div.fruit ul li");
+            console.log($p_li.length);
+            console.log($p_li.attr("title"));
+            pLi_sec = $li.next();
+            console.log(pLi_sec.text());
+            console.log($li.attr("title"));
+            console.log("li value: " + $li.attr("value"));
+            $li_add_p = $("<li>banana</li>")
+            $li.append($li_add_p);
+        })
+    </script>
+</body>
+
+</html>

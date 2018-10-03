@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>sort demo </title>
+	<script src="./jquery.min.js"></script>
+	<style type="text/css">
+		p {
+			margin: 8px;
+			font-size: 18px;
+		}
+		.selected
+	</style>
+</head>
+<body>
+	<div>
+		<ul id="ul01">
+			<li>Apple</li>
+			<li>Orange</li>
+			<li>Banaba</li>
+			<li>Peach</li>
+			<li>Zeach</li>
+			<li>ceach</li>
+		</ul>
+	</div>
+	<div>
+		<a href="#" id="sortLnk">click to sort</a>
+	</div>
+	<div>
+		<ul id="div02"></ul>
+	</div>
+	<p>addClass demo, Line 1</p>
+	<p>addClass demo, Line 2</p>
+	<p>addClass demo, Line 3</p>
+</body>
+<script type="text/javascript">
+	//		$(document).ready(function(){
+	//			console.log('ok');		
+	//		})
+	$(function() {
+		$("#sortLnk").click(function() {
+			var $ul_item = $("ul#ul01").children("li");
+			console.log($ul_item);
+			var listObjDom = $.extend(true, [], $ul_item.get());	// convert jQuery object to array object
+			console.log(listObjDom);
+			var $objJquery = $(listObjDom);							// convert array object to jQuery object
+			console.log($objJquery);
+			console.log($objJquery instanceof jQuery, "48");
+			var $listItem = $ul_item.clone();
+			console.log($listItem instanceof jQuery);
+			$listItem.sort(function(a, b) {
+				compA = $(a).text().toUpperCase();
+				compB = $(b).text().toUpperCase();
+				return(compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+			});
+			console.log($listItem);
+			$("#div02").append($listItem);
+			$objJquery.sort(function(a, b){
+				return a - b;
+			})
+		});
+	});
+</script>
+</html>
