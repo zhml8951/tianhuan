@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>jQuery date() demo</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            margin: 5px;
+            background: yellow;
+        }
+
+        button {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        p {
+            margin: 5px;
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+
+        div.fontBig {
+            font-weight: bolder;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+<div>div first line</div>
+<button>Get "blah" from the div</button>
+<button>Set "blah" to "Data"</button>
+<button>Set "blah" to 866</button>
+<button>Remove "blah" from div</button>
+<p>The "blah" value of this div is <span>?</span></p>
+<br/><br/>
+<label>
+    <input type="text" value="input text"/>
+</label>
+<input type="text" value="abc" title="abc">
+<h3 id="h3 pic">Picture</h3>
+<h2>Hello</h2>
+<form id="myForm">
+    <label>
+        <input type="text" value="input a String." >
+    </label>
+    <input type="button" value="clean test" id="myForm_btn_clean">
+</form>
+<div>
+    <form id="form2">
+        <input type="button" value="echo array"/>
+    </form>
+</div>
+
+</body>
+<script>
+    // check input text
+    $("input[type='text']").on("blur", function () {
+        if (!this.value) {
+            alert("Please enter some text");
+        }
+    });
+    $("<b>&nbsp jQuery</b>bye").appendTo("h3");
+    $($.parseHTML(" wrong<div class='fontBig'> parseHtml</div>")).appendTo("h2");
+    //
+    $("button").click(function () {
+        var value;
+        // $("div").data("blah", "Line-1");
+        switch ($("button").index(this)) {
+            case 0:
+                value = $("div").data("blah");
+                break;
+            case 1:
+                $("div").data("blah", "Data");
+                value = "Stored!";
+                break;
+            case 2:
+                $("div").data("blah", 866);
+                value = "Stored!";
+                break;
+            case 3:
+                $("div").removeData("blah");
+                value = "Removed!";
+                break;
+        }
+        $("span").text("" + value);
+    })
+</script>
+<script>
+    jQuery.fn.clearForm = function () {
+        return this.find(":input:text").each(function () {
+            this.value = "";
+        }).end();
+    };
+    $("#myForm_btn_clean").click(function () {
+        var form = $("#myForm");
+        console.log(form);
+        form.clearForm();
+    });
+    $("#form2 :button").click(function () {
+        var x = [1, 12, 13, 14, 15, 16, 2, 21, 22];
+        for (var i = 0; i < x.length; i++) {
+            console.log("x[" + i + "]= " + x[i]);
+        }
+
+        for (var bj = 0, item; item = x[bj]; bj++) {
+            console.log("bj: " + item);
+        }
+
+        jQuery.each(x.reverse(), function (index, value) {
+            console.log("index: "+ index, "; value: "+ value);
+        });
+        console.log(x.join("-"));
+        console.log(x.pop());
+        console.log(x.sort());
+            
+    });
+</script>
+</html>

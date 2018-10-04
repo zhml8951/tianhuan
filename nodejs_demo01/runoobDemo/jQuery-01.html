@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="../chat-demo/public/jquery.js"></script>
+	<title>jQuery clone</title>
+	<style type="text/css">
+		h3 {
+			margin: 0;
+		}
+		div#right, span, p {
+			width: 80px;
+			height: 40px;
+			float: right;
+			padding: 10px;
+			margin: 10px;
+			background-color: #EEEEEE;
+		}
+		#test {
+			width: auto;
+			height: auto;
+			background-color: transparent;
+		}
+		div#left {
+			width: 80px;
+			height: 40px;
+			float: left;
+			padding: 10px;
+			margin: 10px;
+			background-color: #808080;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="right">--DEDE--
+		<div id="right">DIV HERE</div>
+		<span>SPAN HERE</span>
+		<p>P HERE <button>Button here</button></p><p>ddd</p> <p>ddd</p>
+	</div>
+	<div>
+		<input type="text" name="date" id="date" />
+	</div>
+	
+	<div id="left">---HEHE
+		<div id="left"> DIV IN test </div>
+		<span>SPAN IN test</span>
+		<p>
+			P in test <button>ButtonInTest</button>
+		</p>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function() {
+		var elementCount = $("*").css("border", "3px solid red").length;
+		$("body").prepend("<h3><b>" +elementCount + "</b>&nbsp;elements found. </h3>");
+		var element_left = $("#left").find("*").css("border","3px solid red").length;
+		console.log(element_left)
+		$("body").prepend("<h3>" + element_left + "- elements found.</h3>");
+		console.log($("#right").find("p").length);
+	});
+</script>
+</html>

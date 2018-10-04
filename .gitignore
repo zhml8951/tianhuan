@@ -28,11 +28,12 @@ web.config
 /profiles
 /scripts
 /themes
+typings/
 */.jshintrc
 */.jsconfig.json
 */typings.json
 */.idea/
-/node_modules
-*/typings/
+node_modules
+*/typings
 */node_modules
-/nodejs_demo01/node_modules
+*/.project
