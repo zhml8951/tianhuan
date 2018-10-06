@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>toggleClass demo--hightlight</title>
+	<script src="../public/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		p {
+			margin: 4px;
+			font-size: 18px;
+			font-weight: bolder;
+			cursor: pointer;
+			width: 400px;
+		}
+		
+		.blue {
+			color: blue;
+		}
+		
+		.hightlight {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<p class="blue">This line 1 toggle (<span> Clicks: 0</span>)</p>
+	<p class="blue hightlight">This line 2 highlight (<span> Clicks: 0</span>)</p>
+	<p class="blue">This line 3 normal (<span>Clicks: 0</span>)</p>
+	<p class="blue">This line 4 paragraphs (<span>Clicks: 0</span>)</p>
+</body>
+<script type="text/javascript">
+	//	var count = 0;
+	$("p").each(function() {
+		var $thisParagraph = $(this);
+		console.log($thisParagraph);
+		var count = 0;
+		$thisParagraph.click(function() {
+			count++;
+			$thisParagraph.find("span").text("Clicks: " + count);
+			$thisParagraph.toggleClass("hightlight", count % 3 === 0);
+		});
+	});
+</script>
+</html>
