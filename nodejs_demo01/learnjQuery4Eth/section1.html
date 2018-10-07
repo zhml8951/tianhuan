@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selector demo</title>
+    <script src="../public/jquery.js"></script>
+    <style>
+        .active {
+            color: red;
+            background-color: transparent;
+        }
+        .pHide {
+            /*visibility: hidden;*/
+            /*visibility: visible;*/
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <p>I'm p element</p>
+</div>
+<div class="liTest">
+    <ul>
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+        <li>forth</li>
+        <li>fifth</li>
+    </ul>
+</div>
+<div id="container">
+    <a href="#">empty a href</a><br>
+</div>
+<div>
+    <button class="show-details">show details</button>
+</div>
+<span class="pHide">the details Info</span>
+</body>
+<script>
+    $selector_p=$('div.content').find('p');
+    console.log($selector_p);
+    console.log($selector_p.text());
+    $('ul > li:first').addClass('active');
+    console.log($('ul > li:first').after("<li>add by after</li>").text());
+    $('ul > li:first').next().css('color', 'green');
+    $('#container').append("<a href='../public/addClassDemo.html' title='append' target='_top'>addClassDemo</a>");
+    $('button.show-details').click(function () {
+        console.log($('button.show-details'));
+        $('span.pHide').show();
+        console.log($('span.pHide'));
+    });
+
+</script>
+</html>

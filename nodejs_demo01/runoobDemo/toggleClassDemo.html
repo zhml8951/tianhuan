@@ -33,6 +33,8 @@
 		<button class="a b">toggle A B</button>
 		<button class="a b c">toggle A B C</button>
 		<a href="#">reset</a>
+        <a href="http://www.baidu.com">baidu</a>
+        <a href="https://www.126.com" rel="next">126</a>
 	</div>
 	<div class="wrap">
 		<div></div>
@@ -40,6 +42,9 @@
 		<div class="a b"></div>
 		<div class="a c"></div>
 	</div>
+    <div class="formTest">
+        <input type="text" class="text1" value="enter your name" title="name input">
+    </div>
 </body>
 <script>
     var cls = ["", "a", "a b", "a b c"];
@@ -53,15 +58,35 @@
         });
     };
     $(function () {
-        appendClass()
+        $(document).bind("contextmenu", function (e) {
+            return false;
+        });
+        $('a[href^="http://"]').attr("target","_blank");
+        appendClass();
+        $("input.text1").val("Enter your Text name");
+        textFill($("input.text1"));
     });
+
+    function textFill(input) {
+        var originalValue = input.val();
+        console.log($.trim(input.val()));
+        input.focus(function(){
+            if ($.trim(input.val()) == originalValue) {
+                input.val('');
+            }
+        }).blur(function(){
+            if($.trim(input.val() == '')){
+                input.val(originalValue);
+            }
+        });
+    }
     $("button").on("click", function () {
         var tc = this.className || undefined;
         $divs.toggleClass(tc);
         appendClass();
         console.log($divs);
     });
-    $("a").on("click", function (event) {
+    $("a[href='#']").on("click", function (event) {
         event.preventDefault();
         $divs.empty().each(function (i) {
             this.className = cls[i];
