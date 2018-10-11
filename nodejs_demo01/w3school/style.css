@@ -6,7 +6,7 @@
 
 html {
     min-width: 1210px;
-    background-color: #AE4141;
+    background-color: #fdfcf8;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -19,7 +19,7 @@ body {
     background: #fdfcf8;
 }
 
-body#homeFirst div#wrapper {
+div#wrapper {
     margin: 0 auto;
     padding: 0;
     border: 0;
@@ -28,6 +28,9 @@ body#homeFirst div#wrapper {
     background: transparent url(./wrapper.png) top left repeat-y;
 }
 
+h2, h3, h4, h5 h6 em {
+    font-weight: bold;
+}
 div#header, div#header_index{
     margin: 0 0 0 12px;
     padding: 0;
@@ -182,4 +185,28 @@ a:active {
     text-decoration: none;
     color: #ff0000;
     background: transparent;
+}
+
+div#nav_second {
+    float: left;
+    margin: 0 0 0 6px;
+    padding: 0;
+    border: 0;
+    width: 180px;
+    background: transparent;
+    /*background: transparent url("./wrapper.png") top left repeat-y;*/
+}
+html>body div#nav_second {
+    margin-left: 12px;
+}
+#homeFirst div#nav_second h2:first-child {
+    margin: 10px 0 0 0;
+}
+div#nav_second h2, div#sidebar h2 {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    display: block;
+    font-family: "Microsoft JhengHei", Arial;
+    padding: 10px 0px 5px 10px;
+    border-bottom: 0px solid #fdfcf8;
 }
