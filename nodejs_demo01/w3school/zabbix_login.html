@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>zabbix.thmarket.com</title>
+	<link rel="stylesheet" type="text/css" href="login.css"/>
+</head>
+<body>
+<div id="msg-bad-global" class="msg-bad-global"></div>
+<div class="article">
+	<div class="server-name">zabbix.thmarket.com</div>
+	<div class="sigin-container">
+		<div class="signin-logo"></div>
+		<form method="post" action="index.php" accept-charset="utf-8">
+			<ul>
+				<li>
+					<label for="name">UserName</label>
+					<input type="text" id="name" value="" maxlength="255" autofocus="autofocus"/>
+					<!--<div class="red">Session terminated, re-login, please</div>-->
+				</li>
+				<li>
+					<label for="password">Password</label>
+					<input type="password" id="password" value="" maxlength="255"/>
+				</li>
+				<li>
+					<input id="autoLogin" class="checkbox-radio" name="autoLogin" value="1" checked="checked"
+						   type="checkbox">
+					<label for="autoLogin">
+							<span>
+							</span>
+						Remeber me for 30 days
+					</label>
+
+				</li>
+			</ul>
+		</form>
+	</div>
+</div>
+</body>
+</html>
