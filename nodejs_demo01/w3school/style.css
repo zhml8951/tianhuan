@@ -25,6 +25,7 @@ div#wrapper {
     border: 0;
     width: 1239px;
     text-align: left;
+    overflow: hidden;
     background: transparent url(./wrapper.png) top left repeat-y;
 }
 
@@ -194,7 +195,6 @@ div#nav_second {
     border: 0;
     width: 180px;
     background: transparent;
-    /*background: transparent url("./wrapper.png") top left repeat-y;*/
 }
 html>body div#nav_second {
     margin-left: 12px;
@@ -203,10 +203,42 @@ html>body div#nav_second {
     margin: 10px 0 0 0;
 }
 div#nav_second h2, div#sidebar h2 {
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(0, 0, 0);
     display: block;
-    font-family: "Microsoft JhengHei", Arial;
+    font-family: "microsoft yahei", Arial;
     padding: 10px 0px 5px 10px;
     border-bottom: 0px solid #fdfcf8;
+}
+div#nav_second ul, div#nav_second li, div#sidebar ul, div#sidebar li {
+	margin: 0;
+	padding: 0;
+	font-family: "microsoft yahei", arial;
+	margin-left: 0;
+	list-style: none;
+}
+div#nav_second a:link, div#nav_second a:visited {
+	text-decoration: none;
+	color: #000000;
+	background: transparent;
+}
+div#nav_second a, div#sidebar a {
+	display: block;
+	padding: 5px 0px 5px 15px;
+	font-size: 14px;
+	border-bottom: 0px solid #ddd;
+}
+div#nav_second li>a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: #aaa;
+}
+
+div#nav_second h2#link_about, div#nav_second h2#link_help {
+	font-size: 14px;
+	margin: 0;
+	margin-left: 10px;
+	padding: 0;
+	color: #000088;
+	display: block;
 }
