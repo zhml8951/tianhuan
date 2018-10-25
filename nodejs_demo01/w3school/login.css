@@ -1,0 +1,110 @@
+
+html, body, div, span, strong, center, h1, h2, h3, form, ul, li, label, .article,p {
+	font-family: arial, tahoma, verdana;
+	font-size: 120%;
+	color: #f2f2f2;
+	background-color: #0e1012;
+	margin-bottom: 60px;
+	/*min-width: 900px;*/
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	font-size: 75%;
+	line-height: 1.4em;
+
+}
+ol, ul {
+	list-style: none;
+}
+.msg-bad-global {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	z-index: 10000;
+	width: 100%;
+	padding: 5px 5px;
+	text-align: center;
+	color: #593c00;
+	background-color: #FDFCF8;
+	border-top: 1px solid #ffc040;
+}
+.article {
+	padding: 10px 10px 0 10px;
+}
+.server-name {
+	color: darkgreen;
+	float: right;
+	white-space: nowrap;
+	overflow: hidden;
+	font-weight: bold;
+}
+.sigin-container {
+	background-color: #2b2b2b;
+	width: 280px;
+	margin: 0 auto;
+	margin-top: 5%;
+	padding: 42px 42px 39px 42px;
+	border: 1px solid #303030;
+}
+.sigin-container ul li {
+	padding: 16px 0 0 0;
+	font-size: 1.2em;
+}
+.sigin-container label {
+	display: inline-block;
+	margin: 0 0 2px 0;
+}
+.sigin-container input[type='text'], .sigin-container input[type="password"] {
+	padding: 9px 5px;
+	width: 100%;
+}
+.multiselect, input[type="text"], input[type="password"], input[type="search"], input[type="number"],
+input[type="email"], input[type="time"], input[type="file"], textarea, select {
+	border: 1px solid #4f4f4f;
+	color: #f2f2f2;
+	background-color: #383838;
+	outline: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: border-color 0.2s ease-out;
+	-moz-transition: border-color 0.2s ease-out;
+	transition: border-color 0.2s ease-out;
+	min-height: 24px;
+}
+
+.multiselect:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="search"]:focus,
+input[type="number"]:focus, input[type="email"]:focus, input[type="time"]:focus, input[type="file"]:focus, textarea:focus, select:focus {
+	border-color: #768d99;
+}
+.signin-logo {
+	margin: 0 auto;
+	margin-bottom: 21px;
+	width: 114px;
+	height: 30px;
+	background: url(./icon-sprite.svg) no-repeat 0 -864px;
+}
+
+.red, a.red, select.red, select option.red {
+	color: #e45959;
+}
+
+.checkbox-radio[type="checkbox"]:checked + label span::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 7px;
+	height: 4px;
+	top: 6px;
+	left: 7px;
+	border-left: 2px solid #69808d;
+	border-bottom: 2px solid #69808d;
+	-webkit-transform: translate(-50%, -50%) rotate(-45deg);
+	-moz-transform: translate(-50%, -50%) rotate(-45deg);
+	-ms-transform: translate(-50%, -50%) rotate(-45deg);
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
