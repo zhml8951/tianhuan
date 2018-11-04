@@ -10,9 +10,10 @@ const amqpObj = {
     heartbeat: 0,
     vhost: '/'
 };
+const amqp_url = 'amqp://arnni:123456@192.168.9.101/demo01';
 var queue = "MESSAGE_HELLO";
 var msgContent = 'RabbitMQ, sent a sample message.';
-amqp.connect('amqp://user:123456@172.16.1.71', function (err, conn) {
+amqp.connect(amqp_url, function (err, conn) {
     if (err) {
         console.error('[AMQP]', err.message);
         return setTimeout(start, 1000);

@@ -1,6 +1,7 @@
-var amqp = require('amqplib/callback_api');
+const amqp = require('amqplib/callback_api');
 var queue = 'MESSAGE_HELLO';
-amqp.connect('amqp://user:123456@172.16.1.71', function(err, conn){
+const amqp_url = 'amqp://arnni:123456@192.168.9.101/demo01'
+amqp.connect(amqp_url, function(err, conn){
     if(err) return console.error(err);
     conn.createChannel(function(err, ch){
         // ch.assertQueue(queue, {durable: false});
