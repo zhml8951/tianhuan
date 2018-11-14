@@ -1,0 +1,11 @@
+total 65
+drwxr-xr-x 1 zhml8 197609    0 11月  9 14:41 db/
+drwxr-xr-x 1 zhml8 197609    0 11月 14 17:06 mixu_demo/
+drwxr-xr-x 1 zhml8 197609    0 11月 14 11:28 node_modules/
+-rw-r--r-- 1 zhml8 197609  379 11月 14 11:28 package.json
+-rw-r--r-- 1 zhml8 197609 3582 11月 14 08:19 package-lock.json
+drwxr-xr-x 1 zhml8 197609    0 11月 14 09:34 promise_demo/
+drwxr-xr-x 1 zhml8 197609    0 11月 14 11:05 recorder_demo/
+drwxr-xr-x 1 zhml8 197609    0 11月 14 09:35 small_demo/
+-rw-r--r-- 1 zhml8 197609 4202 11月 14 11:28 yarn.lock
+-rw-r--r-- 1 zhml8 197609 2593 11月  8 14:36 yarn-error.log

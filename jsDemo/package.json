@@ -1,0 +1,19 @@
+{
+  "name": "jsDemo",
+  "version": "0.0.1",
+  "description": "nodejs stu demo",
+  "main": "index.js",
+  "author": "arnni",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.1",
+    "jquery": "^3.3.1",
+    "mysql": "^2.16.0",
+    "promise": "^8.0.2",
+    "when": "^3.7.8"
+  },
+  "peerDependencies": {
+    "curl": "^0.1.4",
+    "jsdom": "^13.0.0"
+  }
+}
