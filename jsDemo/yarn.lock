@@ -752,9 +752,15 @@ whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.5:
     iconv-lite "0.4.24"
 
 whatwg-mimetype@^2.2.0:
+<<<<<<< HEAD
   version "2.2.0"
   resolved "http://registry.npm.taobao.org/whatwg-mimetype/download/whatwg-mimetype-2.2.0.tgz#a3d58ef10b76009b042d03e25591ece89b88d171"
   integrity sha1-o9WO8Qt2AJsELQPiVZHs6JuI0XE=
+=======
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/whatwg-mimetype/download/whatwg-mimetype-2.3.0.tgz#3d4b1e0312d2079879f826aff18dbeeca5960fbf"
+  integrity sha1-PUseAxLSB5h5+Cav8Y2+7KWWD78=
+>>>>>>> a8fd36e2f4ab6a82d85e8064fa3517e3509f681c
 
 whatwg-url@^7.0.0:
   version "7.0.0"
@@ -776,9 +782,15 @@ wordwrap@~1.0.0:
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
 
 ws@^6.1.0:
+<<<<<<< HEAD
   version "6.1.0"
   resolved "http://registry.npm.taobao.org/ws/download/ws-6.1.0.tgz#119a9dbf92c54e190ec18d10e871d55c95cf9373"
   integrity sha1-EZqdv5LFThkOwY0Q6HHVXJXPk3M=
+=======
+  version "6.1.2"
+  resolved "http://registry.npm.taobao.org/ws/download/ws-6.1.2.tgz#3cc7462e98792f0ac679424148903ded3b9c3ad8"
+  integrity sha1-PMdGLph5LwrGeUJBSJA97TucOtg=
+>>>>>>> a8fd36e2f4ab6a82d85e8064fa3517e3509f681c
   dependencies:
     async-limiter "~1.0.0"
 
