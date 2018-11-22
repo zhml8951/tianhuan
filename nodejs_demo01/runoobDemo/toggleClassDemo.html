@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>toggle class demo</title>
+	<script src="../public/jquery.min.js"></script>
+	<style type="text/css">
+		.wrap>div {
+			float: left;
+			width: 100px;
+			margin: 1em 1em 0 0;
+			padding-left: 3px;
+			border: 1px solid #abc;
+		}
+		
+		div.a {
+			background-color: aqua;
+		}
+		
+		div.b {
+			background-color: burlywood;
+		}
+		
+		div.c {
+			background-color: cornsilk;
+		}
+	</style>
+</head>
+<body>
+	<div class="buttons">
+		<button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toggle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+		<button class="a">&nbsp;&nbsp;&nbsp;toggle A&nbsp;&nbsp;&nbsp;</button>
+		<button class="a b">toggle A B</button>
+		<button class="a b c">toggle A B C</button>
+		<a href="#">reset</a>
+        <a href="http://www.baidu.com">baidu</a>
+        <a href="https://www.126.com" rel="next">126</a>
+	</div>
+	<div class="wrap">
+		<div></div>
+		<div class="a"></div>
+		<div class="a b"></div>
+		<div class="a c"></div>
+	</div>
+    <div class="formTest">
+        <input type="text" class="text1" value="enter your name" title="name input">
+    </div>
+</body>
+<script>
+    var cls = ["", "a", "a b", "a b c"];
+    var $divs = $("div.wrap").children();
+    console.log($divs.last());
+    console.log($divs.first().get() instanceof Array);
+    console.log($divs);
+    var appendClass = function () {
+        $divs.append(function () {
+            return "<div>" + (this.className || "none") + "</div>";
+        });
+    };
+    $(function () {
+        $(document).bind("contextmenu", function (e) {
+            return false;
+        });
+        $('a[href^="http://"]').attr("target","_blank");
+        appendClass();
+        $("input.text1").val("Enter your Text name");
+        textFill($("input.text1"));
+    });
+
+    function textFill(input) {
+        var originalValue = input.val();
+        console.log($.trim(input.val()));
+        input.focus(function(){
+            if ($.trim(input.val()) == originalValue) {
+                input.val('');
+            }
+        }).blur(function(){
+            if($.trim(input.val() == '')){
+                input.val(originalValue);
+            }
+        });
+    }
+    $("button").on("click", function () {
+        var tc = this.className || undefined;
+        $divs.toggleClass(tc);
+        appendClass();
+        console.log($divs);
+    });
+    $("a[href='#']").on("click", function (event) {
+        event.preventDefault();
+        $divs.empty().each(function (i) {
+            this.className = cls[i];
+        });
+        appendClass();
+    });
+</script>
+</html>

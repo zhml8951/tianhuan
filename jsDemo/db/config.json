@@ -1,0 +1,17 @@
+{
+	"mysql_112": {
+		"host": "172.16.1.112",
+		"user": "shop01",
+		"password": "36902666",
+		"database": "shop",
+		"charset": "utf8",
+		"connectionLimit": 20
+	},
+	"mysql_114":{
+		"host": "172.16.1.114",
+		"user": "shop02",
+		"password": "36902666",
+		"database": "shop",
+		"charset": "utf8"
+	}
+}
