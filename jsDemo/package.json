@@ -7,7 +7,9 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.1",
+    "curl": "^0.1.4",
     "jquery": "^3.3.1",
+    "jsdom": "^13.0.0",
     "mysql": "^2.16.0",
     "promise": "^8.0.2",
     "when": "^3.7.8"
