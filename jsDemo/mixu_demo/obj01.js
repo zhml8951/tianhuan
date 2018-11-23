@@ -1,3 +1,4 @@
+const fs = require('fs');
 var obj = {
 	id: "First Object",
 	fun01: function(){
@@ -9,6 +10,7 @@ var fun02 = function(){
 	console.log(this.toString());
 	console.log(this);
 	console.log(this == 'object');
+	fs.writeSync(1, `abc ${this}, \n`);
 }
 
 var obj02 = {id: "foo01"};
