@@ -21,4 +21,3 @@ var inputElement = $('#fiptest');
 
 console.log(`${inputElement}`);
 console.log(inputElement.length);
-console.log(inputElement.getjson());

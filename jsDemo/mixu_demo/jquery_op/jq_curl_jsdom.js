@@ -1,11 +1,12 @@
 const curl = require('curl');
-const jsdom = require('jsdom');
+const { JSDOM } = require('jsdom');
+const jquery = require('jquery');
+
 const url = "http://www.thmarket.com/index.html";
 
 curl.get(url, null, (err, resp, body)=>{
 	if(resp.statusCode == 200) {
-		let bodyHtml = parseData(body);
-		console.log(bodyHtml.html());
+		parseData(body);
 	}else{
 		console.error('error while efetching url.');
 	}
@@ -13,8 +14,11 @@ curl.get(url, null, (err, resp, body)=>{
 
 
 function parseData(html){
-	const {JSDOM} = require('jsdom');
 	const dom = new JSDOM(html);
-	const $ = (require('jquery'))(dom.window);
-	return $('html');
+	let $ = jquery(dom.window);
+	let divs = $($('html').find('div')).html();
+	console.log($('div#footer').html());
+	// for(let i in divs) {
+		// console.log(i, divs[i]);
+	// }
 }
