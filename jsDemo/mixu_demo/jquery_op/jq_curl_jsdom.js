@@ -21,4 +21,5 @@ function parseData(html){
 	// for(let i in divs) {
 		// console.log(i, divs[i]);
 	// }
+	//"isStatic": true;
 }
