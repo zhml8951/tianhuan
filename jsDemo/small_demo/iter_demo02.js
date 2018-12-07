@@ -76,5 +76,7 @@ function setDemo3() {
 	console.log(moreAnimals.entries());
 	console.log(moreAnimals.keys());
 	console.log(items = moreAnimals.values());
-	console.log(items.next().done);
+	console.log(typeof items);
+	console.log(items);
+	console.log(items.next());
 })();
