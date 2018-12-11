@@ -23,7 +23,7 @@ var myObj = {
 };
 
 Function.prototype.bind = function(scope) {
-	var fn =this;
+	var fn = this;
 	return function() {
 		return fn.apply(scope);
 	}

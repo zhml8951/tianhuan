@@ -9,7 +9,7 @@ function createIterator(items) {
 				value: value
 			};
 		},
-		return: function(){
+		return: function() {
 			console.log("perform return mothed");
 			return {
 				value: 12222,
@@ -20,13 +20,13 @@ function createIterator(items) {
 }
 
 var colors = ["red", "green", "blue"];
-var iterator = createIterator([1,2]);
+var iterator = createIterator([1, 2]);
 colors[Symbol.iterator] = function() {
 	return iterator;
 }
 
 for (let color of colors) {
-	if(color == 1) break;
+	if (color == 1) break;
 	console.log(color);
 }
 
