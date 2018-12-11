@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 // 
 'use strict'
 
 function obj_define_pro() {
+=======
+
+function obj_defineProperty_test() {
+>>>>>>> 76797dd1dc6e3d42801e2efb0cd4b8df7ade7004
 	var a = {};
 	Object.defineProperty(a, 'b', {
 		set: function(newValue) {
@@ -23,6 +28,7 @@ function obj_define_pro() {
 	console.log(true && false);
 }
 
+<<<<<<< HEAD
 function protoDemo() {
 	let F = function() {
 		this.a = 1;
@@ -206,3 +212,30 @@ function objDemo04 () {
 }
 
 objDemo04();
+=======
+// obj_defineProperty_test();
+
+function inherit_test() {
+	function inherit(p) {
+		if (p == null) throw TypeError();
+		if (Object.create) return Object.create(p);
+		var t = typeof p;
+		if (t !== 'object' && t !== "function") throw TypeError();
+
+		function f() {};
+		f.prototype = p;
+		return new f();
+	}
+
+	var obj02 = {uName: "arnni", uNumber: 88};
+	var obj02_b = inherit(obj02);
+	console.log(obj02.toString());
+	console.log(obj02_b.toString());
+	console.log(obj02.constructor());
+	console.log(obj02_b.constructor());
+	console.log(obj02);
+	console.log(obj02_b);
+}
+
+inherit_test();
+>>>>>>> 76797dd1dc6e3d42801e2efb0cd4b8df7ade7004
