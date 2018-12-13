@@ -49,9 +49,17 @@ function serialDemo() {
 	console.log(Object.getOwnPropertyDescriptors(serialNum));
 	serialNum.sName = 'aaaaaa';
 }
-serialDemo();
+// serialDemo();
 
-demoA()
+function callOf(o) {
+	if (o === null ) return "Null";
+	if(o === undefined) return "Undenfined";
+	return Object.prototype.toString.call(o).slice(8, -1);
+}
 
+console.log(callOf({'x':'aaaa'}));
+console.log(callOf(8888));
+console.log(callOf([88, 888, 999]));
+console.log(callOf(new Set()));
+console.log(callOf(true));
 
-// JavaScript the Definitive guide 135 6.8/ Object Attributes....
