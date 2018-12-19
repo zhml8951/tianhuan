@@ -24,6 +24,8 @@ var iterator = createIterator([1, 2]);
 colors[Symbol.iterator] = function() {
 	return iterator;
 }
+console.log(colors);
+console.log(iterator);
 
 for (let color of colors) {
 	if (color == 1) break;
