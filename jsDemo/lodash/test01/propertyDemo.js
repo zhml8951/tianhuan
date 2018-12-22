@@ -105,7 +105,40 @@ function toFinite(value) {
     return value === value ? value : 0;
 }
 
-function funTest(str) {
-    
+function arrayPush(array, values) {
+    var index = -1,
+        length = values.length,
+        offset = array.length;
+    while (++index < length) {
+        array[offset + index] = values[index];
+    }
+    return array;
+}
+
+function localApply(func, thisArg, args) {
+    switch (args.length) {
+        case 0: return func.call(thisArg);
+        case 1:
+            return func.call(thisArg, args[0]);
+        case 2:
+            return func.call(thisArg, args[0], args[1]);
+        case 3:
+            return func.call(thisArg, args[0], args[1], args[3]);
+    }
+    return func.apply(thisArg, args);
+}
+
+function arrayPushTest(str) {
+    var arr = ['888', 999, 'about'];
+    arrayPush(arr, ['cost', 'length']);
+    for (ele of arr) {
+        console.log(ele);
+    }
+}
+
+function applyTest(){
+    function sayHello(first, last) {
+        console.log(first + ' ' + this.name + ' ' + last);
+    }
 }
 
