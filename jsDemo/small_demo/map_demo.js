@@ -35,6 +35,7 @@ var func01 = baseAry(function (num1, num2) {
     console.log(num1 + num2);
     console.log(num1 - num2);
 }, 2);
+
 func01(88, 99);
 
 baseAry((numA, numB, numC) => {

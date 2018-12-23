@@ -27,9 +27,6 @@ function applyDemo() {
     }, objPut, 0);
 }
 
-// applyDemo();
-// testPro();
-
 function rawTagGet_demo() {
     var testString = "stringTest01";
     var result = getRawTag(testString);
@@ -128,9 +125,20 @@ function localApply(func, thisArg, args) {
     return func.apply(thisArg, args);
 }
 
+function baseArity(func, n) {
+    return n === 2
+        ? function (a, b) {
+          return func.apply(undefined, arguments);
+        }
+        : function (a) {
+          return func.apply(undefined, arguments);
+        };
+}
+
 function arrayPushTest(str) {
     var arr = ['888', 999, 'about'];
     arrayPush(arr, ['cost', 'length']);
+    var ele;
     for (ele of arr) {
         console.log(ele);
     }
@@ -141,4 +149,19 @@ function applyTest(){
         console.log(first + ' ' + this.name + ' ' + last);
     }
 }
+
+function testBaseArity(){
+    function funTest01(para1, para2){
+        this.name = para1;
+        this.num = para2;
+        console.log('test01, ' + this.name + ', test OK! ---- ' + this.num);
+        return this.name + ': ' + this.num;
+    }
+    var funResult = baseArity(funTest01, 5);
+    var result = funResult(33, 88, 22);
+    console.log(result);
+}
+
+testBaseArity();
+
 
