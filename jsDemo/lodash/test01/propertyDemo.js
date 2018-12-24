@@ -181,6 +181,59 @@ function baseSlice(array, start, end) {
     return result;
 }
 
-testBaseArity();
+function castSlice(array, start, end) {
+    var length = array.length;
+    end = end === undefined ? length : end;
+    return (!start && end >= length) ? array : baseSlice(array, start, end);
+}
 
+function shortOut(func) {
+    const HOT_SPAN = 16,
+        HOT_COUNT = 800;
 
+    var count = 0,
+        lastCalled = 0;
+    return function() {
+        var stamp = Date.now();
+        console.log(stamp + ' --- ' + lastCalled);
+        var remaining = HOT_SPAN - (stamp - lastCalled);
+
+        lastCalled = stamp;
+        console.log(lastCalled);
+        console.log(remaining);
+        if(remaining > 0) {
+            if (++count >= HOT_COUNT)
+                return arguments[0];
+        } else {
+            count = 0;
+        }
+        return func.apply(undefined, arguments);
+    };
+}
+function tsShortOut(){
+    function sayHello() {
+        console.log('Hello, ' + this + '.. ok...');
+    }
+    for(let i =0; i < 10000000; i++) {
+        var test01 = shortOut(sayHello);
+        console.log(test01());
+    }
+}
+
+tsShortOut();
+
+function baseRest(func, start) {
+    //TODO...
+    return 0;
+}
+
+function spread(func, start) {
+    const FUNC_ERROR_TEXT = 'Expected a function';
+    if (typeof func !== 'function') {
+        throw new TypeError(FUNC_ERROR_TEXT);
+    }
+    start = start === null ? 0 : Math.max(toInteger(start), 0);
+    return baseRest(function(args){
+        //TODO ....
+    })
+}
