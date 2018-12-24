@@ -3,6 +3,11 @@ const applyUtil = require('../_apply');
 const baseGetTag = require('../_baseGetTag');
 const getRawTag = require('../_getRawTag');
 
+const freeGlobal = typeof global === 'object' && global && global.Object === Object && global;
+const freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+const root = freeGlobal || freeSelf || Function('return this')();
+const coreJsDate = root['__core-js_shared__'];
+
 function testPro() {
     var protoFun = baseProperty('a01');
     var obj01 = {
@@ -24,7 +29,7 @@ function applyDemo() {
         console.log(this.name);
         console.log(this.age);
         console.log(this.num);
-    }, objPut, 0);
+    }, objPut, [11,22]);
 }
 
 function rawTagGet_demo() {
@@ -41,9 +46,8 @@ function rawTagGet_demo() {
     var person01 = new Person();
     console.log(getRawTag(person01));
     console.log(baseGetTag(person01));
-    console.log(baseGetTag());
     try{
-        console.log(baseGetTag(person02));
+        console.log(baseGetTag(person01));
     } catch(e) {
         // throw new ReferenceError("Object not defined.");
         console.log(e.toString());
@@ -63,14 +67,14 @@ function toNumber(str) {
 
     function isObject(value) {
         var type = typeof value;
-        return value != null && (type == 'object' || type == 'function');
+        return value != null && (type === 'object' || type === 'function');
     }
 
     if(isObject(str)) {
         var tempStr = typeof str.valueOf === 'function' ? str.valueOf() : value;
         str = isObject(tempStr) ? (tempStr + ''): tempStr;
     }
-    if(typeof str != 'string') {
+    if(typeof str !== 'string') {
         console.log(str === 0);
         return str === 0 ? str : +str;
     }
@@ -214,17 +218,147 @@ function tsShortOut(){
     function sayHello() {
         console.log('Hello, ' + this + '.. ok...');
     }
-    for(let i =0; i < 10000000; i++) {
+    for(let i =0; i < 100; i++) {
         var test01 = shortOut(sayHello);
         console.log(test01());
     }
 }
 
-tsShortOut();
+function toSource(func) {
+    const funToString = Function.prototype.toString;
+
+    if (func !== null) {
+        try {
+            return funToString.call(func);
+        } catch (e) {
+        }
+        try {
+            return (func + '');
+        } catch (e) {
+        }
+    }
+    return '';
+}
+
+function isMasked(func) {
+    var maskSrcKey = (function () {
+        var uid = /[^.]+$/.exec(coreJsDate && coreJsDate.keys && coreJsDate.keys.IE_PROTO || '');
+        return uid ? ('Symbol(src)_1.' + uid) : '';
+    }());
+    return !!maskSrcKey && (maskSrcKey in func);
+}
+
+function getValue(object, key) {
+    return object === null ? undefined : object[key];
+}
+
+function baseIsNative(value) {
+    var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+    var reIsHostCtor = /^\[object .+?Constructor]$/;
+    var funcProto = Function.prototype,
+        objectProto = Object.prototype;
+    var funcToString = funcProto.toString;
+    var hasOwnProperty = objectProto.hasOwnProperty;
+    var reIsNative = RegExp('^' +
+        funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
+            .replace(/hasOwnProperty|(function).*?(?=\\\() | for .+?(?=\\])/g, '$1.*?') + '$'
+    );
+    if (!isObject(value) || isMasked(value)) {
+        return false;
+    }
+    var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
+    return pattern.test(toSource(value));
+}
+
+function isFunction(value) {
+    if (!isObject(value))
+        return false;
+    var tag = baseGetTag(value);
+
+    var asyncTag = '[object AsyncFunction]',
+        funcTag = '[object Function]',
+        genTag = '[object GeneratorFunction]',
+        proxyTag = '[object Proxy]';
+    return tag === funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+
+}
+
+function getNative(object, key) {
+    var value = getValue(object, key);
+    return baseIsNative(value) ? value : undefined;
+}
+
+var defineProperty = (function () {
+    try {
+        var func = getNative(Object, 'defineProperty');
+        func({}, '', {});
+        return func;
+    } catch(e){}
+}());
+
+function identity(value) {
+    return value;
+}
+
+function constant(value) {
+    return function() {
+        return value;
+    };
+}
+
+function baseSetToString(func, string) {
+   return !defineProperty ? identity : defineProperty(func, 'toString', {
+       'configurable': true,
+       'enumerable': false,
+       'value': constant(string),
+       'writable': true
+   });
+}
+
+function baseToString(value) {
+    const INFINITY = 1 / 0;
+    var symbolProto = Symbol ? Symbol.prototype : undefined;
+    var symbolToString = symbolProto ? symbolProto.toString : undefined;
+    if (typeof value === 'string') {
+        return value;
+    }
+    if (isArray(value)) {
+        return arrayMap(value, baseToString() + '');
+    }
+    if (isSymbol(value)) {
+        return symbolToString ? symbolToString.call(value) : '';
+    }
+    var result = (value + '');
+    return (result === '0' && (1 / value) === -INFINITY) ? '-0' : result;
+}
+
+function setToString(f, s) {
+    shortOut(baseSetToString);
+}
+
+function overRest(func, start, transform) {
+    const nativeMax = Math.max;
+    start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+    return function () {
+        var args = arguments,
+            index = -1,
+            length = nativeMax(args.length - start, 0),
+            array = Array(length);
+        while( ++index < length) {
+            array[index] = args[start + index];
+        }
+        index = -1;
+        var otherArgs = Array(start + 1);
+        while ( ++index < start) {
+            otherArgs[index] = args[index];
+        }
+        otherArgs[start] = transform(array);
+        return localApply(func, this, otherArgs);
+    }
+}
 
 function baseRest(func, start) {
-    //TODO...
-    return 0;
+    return setToString(overRest(func, start, identity), func + '');
 }
 
 function spread(func, start) {
@@ -233,7 +367,12 @@ function spread(func, start) {
         throw new TypeError(FUNC_ERROR_TEXT);
     }
     start = start === null ? 0 : Math.max(toInteger(start), 0);
-    return baseRest(function(args){
-        //TODO ....
-    })
+    return baseRest(function (args) {
+        var array = args[start],
+            otherArgs = castSlice(args, 0, start);
+        if(array) {
+            arrayPush(otherArgs, array);
+        }
+        return localApply(func, this, otherArgs);
+    });
 }
