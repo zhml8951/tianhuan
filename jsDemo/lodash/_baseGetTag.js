@@ -10,7 +10,7 @@ var nullTag = '[object Null]',
 var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
 
 /**
- * The base implementation of `getTag` without fallbacks for buggy environments.
+ * The base implementation of `getTag` without fallback for buggy environments.
  *
  * @private
  * @param {*} value The value to query.

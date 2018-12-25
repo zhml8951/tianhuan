@@ -280,7 +280,7 @@
                     }
                 }
             }
-            return concat.apply([].ret);
+            return concat.apply([],ret);
         },
         guid: 1,
         support: support
