@@ -6,6 +6,6 @@ var $ = null;
 
 var dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 console.log(dom.window.document.querySelector("p").textContent);
-var $ = require('jquery')(dom.window);
+$ = require('jquery')(dom.window);
 console.log('jquery: '+ $("p").text());
 console.log('html: ' + $('p').html());
