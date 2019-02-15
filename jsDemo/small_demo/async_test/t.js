@@ -9,7 +9,6 @@ exports.inc = function(n, callback, timeout) {
 
 exports.fire = function(obj, callback, timeout) {
 	timeout = timeout || 200;
-	console.log(timeout);
 	setTimeout(function() {
 		callback(null, obj + '----');
 		logLocal('fire---in--function');
@@ -18,7 +17,6 @@ exports.fire = function(obj, callback, timeout) {
 
 exports.fireTwo = function(obj, timeout, cb) {
 	timeout = timeout;
-	console.log('timeout_in_fireTwo: ', timeout);
 	setTimeout(function() {
 		cb(null, obj);
 	}, timeout);
