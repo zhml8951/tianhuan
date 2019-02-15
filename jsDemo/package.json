@@ -8,14 +8,15 @@
   "dependencies": {
     "async": "^2.6.1",
     "commander": "^2.19.0",
+    "connect": "^3.6.6",
     "curl": "^0.1.4",
     "jquery": "^3.3.1",
     "jsdom": "^13.0.0",
+    "moment": "^2.23.0",
     "mysql": "^2.16.0",
     "promise": "^8.0.2",
     "request": "^2.88.0",
-    "when": "^3.7.8",
-    "moment": "^2.23.0"
+    "when": "^3.7.8"
   },
   "peerDependencies": {
     "curl": "^0.1.4",

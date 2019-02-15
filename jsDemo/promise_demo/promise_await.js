@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 var Delay_Time = (ms)=>{
     return new Promise((resolve)=>{
         setTimeout(resolve, ms);
     });
 };
 
-Delay_Time_Second = (ms)=>{
+var Delay_Time_Second = (ms)=>{
     setTimeout(()=>{
         console.log('wait at second.');
     }, ms);
