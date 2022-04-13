@@ -6,7 +6,7 @@
   "author": "arnni",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "commander": "^2.19.0",
     "connect": "^3.6.6",
     "curl": "^0.1.4",
